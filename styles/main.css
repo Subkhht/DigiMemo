@@ -1,0 +1,177 @@
+body {
+    background-color: #0a0a1a;
+    color: #00ff41;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #111;
+    border: 2px solid #00ff41;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 0 0 10px #00ff41;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    background: #222;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: #55ff99;
+    opacity: 0.7;
+}
+
+button {
+    padding: 12px 20px;
+    background: #00ff41;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #00cc33;
+}
+
+.digimon-card {
+    background: #1a1a2e;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    display: none;
+}
+
+.digimon-card.show {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.digimon-card img {
+    max-width: 150px;
+    height: auto;
+    float: right;
+    margin-left: 20px;
+    border: 1px solid #00ff41;
+    border-radius: 4px;
+}
+
+.digimon-card h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.digimon-card p {
+    margin: 8px 0;
+}
+
+#habilidades {
+    padding-left: 20px;
+    margin: 8px 0;
+}
+
+#habilidades li {
+    margin-bottom: 4px;
+}
+
+.error {
+    color: #ff5555;
+    text-align: center;
+    margin-top: 20px;
+    min-height: 24px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .search-box {
+        flex-direction: column;
+    }
+
+    .digimon-card img {
+        float: none;
+        display: block;
+        margin: 0 auto 15px;
+    }
+}
+
+#sugerencias {
+    background: #1a1a2e;
+    border: 1px solid #00ff41;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width: calc(100% - 40px);
+    /* ajuste al contenedor */
+    margin-top: 5px;
+}
+
+#sugerencias.show {
+    display: block;
+}
+
+#sugerencias div {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    color: #55ff99;
+}
+
+#sugerencias div:last-child {
+    border-bottom: none;
+}
+
+#sugerencias div:hover {
+    background: #2a2a3e;
+    color: #00ff41;
+}
+
+.campo-item {
+    display: inline-block;
+    margin: 8px;
+    text-align: center;
+    background: #222;
+    padding: 6px;
+    border-radius: 6px;
+    min-width: 70px;
+}

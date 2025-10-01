@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigiMemo</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 DigiMemo v1.0</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Ej: Agumon, Gabumon..." autocomplete="off" />
+            <button id="searchBtn">Buscar</button>
+        </div>
+        <div id="sugerencias"></div>
+
+        <div id="error" class="error"></div>
+
+        <div id="digimonCard" class="digimon-card">
+            <h2 id="nombre"></h2>
+            <p><strong>ID:</strong> <span id="id"></span></p>
+            <img id="imagen" src="" alt="Imagen del Digimon" />
+            <p><strong>Nivel:</strong> <span id="nivel"></span></p>
+            <p><strong>Tipo:</strong> <span id="tipo"></span></p>
+            <p><strong>Atributo:</strong> <span id="atributo"></span></p>
+            <div>
+                <strong>Campo(s):</strong>
+                <div id="camposContainer"></div>
+            </div>
+            <p><strong>Habilidades:</strong></p>
+            <ul id="habilidades"></ul>
+            <p><strong>Descripción:</strong> <span id="descripcion"></span></p>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
