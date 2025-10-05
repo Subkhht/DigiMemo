@@ -4,37 +4,102 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DigiMemo</title>
+    <meta name="description" content="DigiMemo - Buscador de Digimon con información detallada sobre niveles, tipos, atributos, habilidades y más." />
+    <meta name="keywords" content="Digimon, DigiMemo, buscador Digimon, enciclopedia Digimon" />
+    <meta name="author" content="DigiMemo" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DigiMemo - Buscador de Digimon" />
+    <meta property="og:description" content="Busca y descubre información detallada sobre tus Digimon favoritos" />
+    <meta property="og:image" content="assets/Digivice.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="DigiMemo - Buscador de Digimon" />
+    <meta name="twitter:description" content="Busca y descubre información detallada sobre tus Digimon favoritos" />
+    
+    <title>DigiMemo - Buscador de Digimon</title>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="icon" type="image/png" href="assets/Digivice.png" />
 </head>
 
 <body>
     <div class="container">
-        <h1>🔍 DigiMemo v1.0</h1>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Ej: Agumon, Gabumon..." autocomplete="off" />
-            <button id="searchBtn">Buscar</button>
-        </div>
-        <div id="sugerencias"></div>
+        <header>
+            <h1>🔍 DigiMemo v1.0</h1>
+            <p class="subtitle">Tu enciclopedia digital de Digimon</p>
+        </header>
+        
+        <main>
+            <section class="search-section" aria-label="Búsqueda de Digimon">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Ej: Agumon, Gabumon..." 
+                        autocomplete="off"
+                        aria-label="Buscar Digimon"
+                        aria-describedby="error" />
+                    <button id="searchBtn" aria-label="Buscar">Buscar</button>
+                </div>
+                <div id="sugerencias" role="listbox" aria-label="Sugerencias"></div>
+            </section>
 
-        <div id="error" class="error"></div>
-
-        <div id="digimonCard" class="digimon-card">
-            <h2 id="nombre"></h2>
-            <p><strong>ID:</strong> <span id="id"></span></p>
-            <img id="imagen" src="" alt="Imagen del Digimon" />
-            <p><strong>Nivel:</strong> <span id="nivel"></span></p>
-            <p><strong>Tipo:</strong> <span id="tipo"></span></p>
-            <p><strong>Atributo:</strong> <span id="atributo"></span></p>
-            <div>
-                <strong>Campo(s):</strong>
-                <div id="camposContainer"></div>
+            <div id="loading" class="loading" aria-live="polite" aria-atomic="true">
+                <div class="spinner"></div>
+                <p>Cargando...</p>
             </div>
-            <p><strong>Habilidades:</strong></p>
-            <ul id="habilidades"></ul>
-            <p><strong>Descripción:</strong> <span id="descripcion"></span></p>
-        </div>
+
+            <div id="error" class="error" role="alert" aria-live="assertive"></div>
+
+            <section id="digimonCard" class="digimon-card" aria-label="Información del Digimon">
+                <div class="card-header">
+                    <h2 id="nombre"></h2>
+                    <button id="favoriteBtn" class="favorite-btn" aria-label="Agregar a favoritos" title="Agregar a favoritos">
+                        ⭐
+                    </button>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-section">
+                        <p><strong>ID:</strong> <span id="id"></span></p>
+                        <img id="imagen" src="" alt="Imagen del Digimon" />
+                        <p><strong>Nivel:</strong> <span id="nivel"></span></p>
+                        <p><strong>Tipo:</strong> <span id="tipo"></span></p>
+                        <p><strong>Atributo:</strong> <span id="atributo"></span></p>
+                        <div class="campos-section">
+                            <strong>Campo(s):</strong>
+                            <div id="camposContainer"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-section">
+                        <p><strong>Habilidades:</strong></p>
+                        <ul id="habilidades"></ul>
+                    </div>
+                    
+                    <div class="description-section">
+                        <p><strong>Descripción:</strong></p>
+                        <p id="descripcion"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="favoritesSection" class="favorites-section">
+                <h3>⭐ Favoritos</h3>
+                <div id="favoritesList"></div>
+            </section>
+
+            <section id="historySection" class="history-section">
+                <h3>📜 Búsquedas recientes</h3>
+                <div id="historyList"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Desarrollado con la <a href="https://digi-api.com/" target="_blank" rel="noopener noreferrer">Digi-API</a></p>
+        </footer>
     </div>
 
     <script src="scripts/app.js"></script>
